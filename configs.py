@@ -227,3 +227,22 @@ class TestConfig:
     inference: InferenceConfig = InferenceConfig()
     distribution: DistributionConfig = DistributionConfig()
     misc: MiscConfig = MiscConfig()
+
+
+@dataclass
+class DatasetsRelLossConfig:
+    # path to test dataset
+    train_path: str = MISSING
+
+
+@dataclass
+class RelLossConfig:
+    batch_size: int = MISSING
+
+
+@dataclass
+class RelLossConfig:
+    dataset: DatasetsRelLossConfig = DatasetsRelLossConfig()
+    model: ModelTestConfig = ModelTestConfig()
+    loss: RelLossConfig = RelLossConfig()
+    distribution: DistributionConfig = DistributionConfig()

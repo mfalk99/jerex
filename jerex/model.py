@@ -10,7 +10,7 @@ from pytorch_lightning import loggers
 from pytorch_lightning.callbacks import ModelCheckpoint, LearningRateMonitor
 from transformers import AdamW, BertConfig, BertTokenizer
 
-from configs import TrainConfig, TestConfig
+from configs import TrainConfig, TestConfig, RelLossConfig
 from jerex import models, util
 from jerex.data_module import DocREDDataModule
 
@@ -387,3 +387,7 @@ def test(cfg: TestConfig):
     # test
     data_module.setup('test')
     trainer.test(model, datamodule=data_module)
+
+
+def rel_loss(cfg: RelLossConfig):
+    print("Running", cfg)

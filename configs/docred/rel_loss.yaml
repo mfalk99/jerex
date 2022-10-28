@@ -1,0 +1,21 @@
+dataset:
+  train_path: ./data/datasets/docred/train_joint_perturbed.json
+
+model:
+  model_path: ./data/models/docred/rel_classify_multi_instance/model.ckpt
+  tokenizer_path: ./data/models/docred/rel_classify_multi_instance
+  encoder_config_path: ./data/models/docred/rel_classify_multi_instance
+
+loss:
+  batch_size: 1
+
+distribution:
+  gpus: []
+  accelerator: ''
+  prepare_data_per_node: false
+
+hydra:
+  # run:
+  #   dir: ./data/runs/${now:%Y-%m-%d}/${now:%H-%M-%S}
+  # output_subdir: run_config
+  output_subdir: null
