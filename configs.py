@@ -244,5 +244,7 @@ class RelLossConfig:
 class RelLossConfig:
     dataset: DatasetsRelLossConfig = DatasetsRelLossConfig()
     model: ModelTestConfig = ModelTestConfig()
+    inference: InferenceConfig = InferenceConfig()
     loss: RelLossConfig = RelLossConfig()
     distribution: DistributionConfig = DistributionConfig()
+    misc: MiscConfig = MiscConfig()

@@ -1,5 +1,5 @@
 dataset:
-  train_path: ./data/datasets/docred/train_joint_perturbed.json
+  train_path: ./data/datasets/docred_joint/train_joint_perturbed_min.json
 
 model:
   model_path: ./data/models/docred/rel_classify_multi_instance/model.ckpt
