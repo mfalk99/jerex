@@ -9,7 +9,7 @@ cs = ConfigStore.instance()
 cs.store(name="train", node=TrainConfig)
 
 
-@hydra.main(config_name='train', config_path='configs/docred_joint')
+@hydra.main(config_name='train', config_path='configs/docred')
 def train(cfg: TrainConfig) -> None:
     print(OmegaConf.to_yaml(cfg))
 
