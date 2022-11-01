@@ -14,6 +14,7 @@ def rel_loss(cfg: RelLossConfig) -> None:
     # print(OmegaConf.to_yaml(cfg))
 
     util.config_to_abs_paths(cfg.dataset, 'train_path')
+    util.config_to_abs_paths(cfg.loss, 'output_path')
     util.config_to_abs_paths(cfg.model, 'model_path', 'tokenizer_path', 'encoder_config_path')
 
     model.rel_loss(cfg)

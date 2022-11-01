@@ -16,7 +16,7 @@ class DocREDDataModule(pl.LightningDataModule):
                  train_path: str = None, valid_path: str = None, test_path: str = None,
                  entity_types: dict = None, relation_types: dict = None,
                  train_batch_size: int = 1, valid_batch_size: int = 1, test_batch_size: int = 1,
-                 sampling_processes: int = 4, neg_mention_count: int = 50,
+                 sampling_processes: int = 1, neg_mention_count: int = 50,
                  neg_relation_count: int = 50, neg_coref_count: int = 50,
                  max_span_size: int = 10, neg_mention_overlap_ratio: float = 0.5,
                  final_valid_evaluate: bool = False):
@@ -111,6 +111,20 @@ class DocREDDataModule(pl.LightningDataModule):
             self._test_dataset.switch_task(self._task_type)
             self._test_dataset.switch_mode(DocREDDataset.INFERENCE_MODE)
 
+        if stage == 'rel_loss':
+            if self._train_path is not None:
+                self._train_dataset = DocREDDataset(dataset_path=self._train_path,
+                                                    entity_types=self._entity_types,
+                                                    relation_types=self._relation_types,
+                                                    neg_mention_count=self._neg_mention_count,
+                                                    neg_coref_count=self._neg_coref_count,
+                                                    neg_rel_count=-1,
+                                                    max_span_size=self._max_span_size,
+                                                    neg_mention_overlap_ratio=self._neg_mention_overlap_ratio,
+                                                    tokenizer=self._tokenizer)
+                self._train_dataset.switch_task(self._task_type)
+                self._train_dataset.switch_mode(DocREDDataset.RELLOSS_MODE)
+
     def train_dataloader(self):
         return DataLoader(self._train_dataset, batch_size=self._train_batch_size, shuffle=True, drop_last=True,
                           num_workers=self._sampling_processes,
@@ -123,6 +137,11 @@ class DocREDDataModule(pl.LightningDataModule):
 
     def test_dataloader(self):
         return DataLoader(self._test_dataset, batch_size=self._test_batch_size, shuffle=False, drop_last=False,
+                          num_workers=self._sampling_processes,
+                          collate_fn=collate_fn_padding)
+
+    def rel_loss_dataloader(self):
+        return DataLoader(self._train_dataset, batch_size=self._train_batch_size, shuffle=False, drop_last=False,
                           num_workers=self._sampling_processes,
                           collate_fn=collate_fn_padding)
 

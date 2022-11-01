@@ -242,7 +242,12 @@ def create_neg_relations(entities, rels_between_entities, rel_type_count, neg_re
                     neg_unrelated.append(pair)
 
     # sample negative relations
-    neg_unrelated = random.sample(neg_unrelated, min(len(neg_unrelated), neg_rel_count))
+    if neg_rel_count >= 0:
+        neg_unrelated = random.sample(neg_unrelated, min(len(neg_unrelated), neg_rel_count))
+    elif neg_rel_count == -1:
+        # sample all possible negative relations
+        pass
+
     neg_rel_entity_pairs, neg_rel_types = [], []
 
     for pair in neg_unrelated:

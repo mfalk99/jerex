@@ -18,6 +18,8 @@ class DocREDDataset(TorchDataset):
     TRAIN_MODE = 'train'
     INFERENCE_MODE = 'inference'
 
+    RELLOSS_MODE = 'rel_loss'
+
     def __init__(self, dataset_path, entity_types, relation_types, tokenizer, neg_mention_count=200,
                  neg_rel_count=200, neg_coref_count=200, max_span_size=10, neg_mention_overlap_ratio=0.5):
         self._dataset_path = dataset_path
@@ -199,7 +201,7 @@ class DocREDDataset(TorchDataset):
     def __getitem__(self, index: int):
         doc = self._documents[index]
 
-        if self._mode == DocREDDataset.TRAIN_MODE:
+        if self._mode in {DocREDDataset.TRAIN_MODE, DocREDDataset.RELLOSS_MODE}:
             if self._task == TaskType.JOINT:
                 return sampling_joint.create_joint_train_sample(doc, self._neg_mention_count, self._neg_rel_count,
                                                                 self._neg_coref_count,

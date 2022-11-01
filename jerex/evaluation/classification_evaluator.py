@@ -188,7 +188,7 @@ class RelClassificationEvaluator(Evaluator):
 
         for rel, rel_type_idx, score in zip(rel_entity_pairs, rel_types, rel_scores):
             rel_type_idx = self._relation_types[rel_type_idx]
-            converted_relations.append((rel[0], rel[1], rel_type_idx))
+            converted_relations.append((rel[0], rel[1], rel_type_idx, score))
 
         assert len(converted_relations) == len(set(converted_relations))
         return converted_relations

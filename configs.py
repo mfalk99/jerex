@@ -236,14 +236,19 @@ class DatasetsRelLossConfig:
 
 
 @dataclass
+class ModelRelLossConfig(ModelTestConfig):
+    rel_threshold: float = 0.6
+
+@dataclass
 class RelLossConfig:
     batch_size: int = MISSING
+    output_path: str = MISSING
 
 
 @dataclass
 class RelLossConfig:
     dataset: DatasetsRelLossConfig = DatasetsRelLossConfig()
-    model: ModelTestConfig = ModelTestConfig()
+    model: ModelRelLossConfig = ModelRelLossConfig()
     inference: InferenceConfig = InferenceConfig()
     loss: RelLossConfig = RelLossConfig()
     distribution: DistributionConfig = DistributionConfig()

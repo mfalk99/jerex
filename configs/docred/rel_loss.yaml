@@ -1,5 +1,5 @@
 dataset:
-  train_path: ./data/datasets/docred_joint/train_joint_perturbed_min.json
+  train_path: ./data/datasets/docred/train_annotated_perturbed_min.json
 
 model:
   model_path: ./data/models/docred/rel_classify_multi_instance/model.ckpt
@@ -8,6 +8,7 @@ model:
 
 loss:
   batch_size: 1
+  output_path: "./influence_analysis/loss.jsonl"
 
 distribution:
   gpus: []
