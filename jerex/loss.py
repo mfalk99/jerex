@@ -160,11 +160,12 @@ class RelationClassificationLoss(Loss):
 
         rel_clf = rel_clf.view(-1, rel_clf.shape[-1])
         rel_types = rel_types.view(-1, rel_types.shape[-1])
-
+        
         train_loss = self._rel_criterion(rel_clf, rel_types.float())
-        train_loss = train_loss.sum(-1)
-        train_loss = (train_loss * rel_sample_masks).sum() / rel_count
 
+        train_loss_rel = train_loss.sum(-1) 
+        loss_dict['rel_loss'] = train_loss_rel
+        train_loss = (train_loss_rel * rel_sample_masks).sum() / rel_count
+        
         loss_dict['loss'] = train_loss
-
         return loss_dict

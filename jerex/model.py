@@ -1,4 +1,5 @@
 import os
+import jsonlines
 import pickle
 import warnings
 from multiprocessing import Lock
@@ -10,9 +11,10 @@ from pytorch_lightning import loggers
 from pytorch_lightning.callbacks import ModelCheckpoint, LearningRateMonitor
 from transformers import AdamW, BertConfig, BertTokenizer
 
-from configs import TrainConfig, TestConfig
+from configs import TrainConfig, TestConfig, RelLossConfig
 from jerex import models, util
 from jerex.data_module import DocREDDataModule
+from jerex.task_types import TaskType
 
 _predictions_write_lock = Lock()
 
@@ -184,6 +186,60 @@ class JEREXModel(pl.LightningModule):
                 res = dict(doc_id=doc_id.item(), predictions=doc_predictions)
                 with open(self._tmp_predictions_filename, 'ab+') as fp:
                     pickle.dump(res, fp)
+
+    def do_rel_loss(self, batch, rel_threshold: float):
+
+        # torch.set_printoptions(profile="full")
+        # for key in batch:
+        #     print(key, batch[key].size())
+        # exit()
+
+        # inference=False: dont apply sigmoid during forward step.
+        # This way we can compute the loss for the batch / sample 
+        output = self(**batch, inference=True)
+        
+        # inference
+        rel_clf = output['rel_clf']
+        rel_clf = torch.sigmoid(rel_clf)
+        rel_clf[rel_clf < rel_threshold] = 0
+        rel_clf *= batch['rel_sample_masks'].unsqueeze(-1)
+        predictions = self._evaluator.convert_batch(rel_clf, batch=batch)
+
+        losses = self._compute_loss.compute(**output, **batch)
+        # for key in losses:
+        #     print(key, losses[key].size())
+        # print()
+
+        # build store
+        out = []
+
+        assert len(predictions) == 1
+        predictions = predictions[0]
+
+        rel_entity_pairs = batch['rel_entity_pairs']
+        assert rel_entity_pairs.shape[0] == 1   # only consists of one sample
+        rel_entity_pairs = rel_entity_pairs[0]
+
+        for p in range(rel_entity_pairs.shape[0]):
+            ents = rel_entity_pairs[p].tolist()
+            loss = losses["rel_loss"][p]
+            out.append({"entity_pair": ents, "preds": {}, "loss": loss.item()})
+
+        for pred in predictions:
+            ents = pred[0], pred[1]
+            pred_rel, pred_score = str(pred[2]), pred[3]
+            for p in out:
+                if p["entity_pair"] == list(ents):
+                    assert pred_rel not in p["preds"]
+                    p["preds"][pred_rel] = pred_score
+                    break
+
+        return out
+
+        # TODO:
+        # - Jinja template
+        # - Relationen, die GT none sind laut model REL haben
+
 
     def configure_optimizers(self):
         """ Created and configures optimizer and learning rate schedule """
@@ -387,3 +443,36 @@ def test(cfg: TestConfig):
     # test
     data_module.setup('test')
     trainer.test(model, datamodule=data_module)
+
+
+def rel_loss(cfg: RelLossConfig):
+    overrides = util.get_overrides_dict(mention_threshold=cfg.model.mention_threshold,
+                                        coref_threshold=cfg.model.coref_threshold,
+                                        rel_threshold=cfg.model.rel_threshold,
+                                        cache_path=cfg.misc.cache_path)
+    model = JEREXModel.load_from_checkpoint(cfg.model.model_path,
+                                            tokenizer_path=cfg.model.tokenizer_path,
+                                            encoder_config_path=cfg.model.encoder_config_path,
+                                            max_spans_inference=cfg.inference.max_spans,
+                                            max_coref_pairs_inference=cfg.inference.max_coref_pairs,
+                                            max_rel_pairs_inference=cfg.inference.max_rel_pairs,
+                                            encoder_path=None, **overrides)
+
+    tokenizer = BertTokenizer.from_pretrained(cfg.model.tokenizer_path,
+                                              do_lower_case=model.hparams.lowercase,
+                                              cache_dir=model.hparams.cache_path)
+
+    # read datasets
+    model_class = models.get_model(model.hparams.model_type)
+    data_module = DocREDDataModule(entity_types=model.hparams.entity_types,
+                                   relation_types=model.hparams.relation_types,
+                                   tokenizer=tokenizer, task_type=model_class.TASK_TYPE,
+                                   train_path=cfg.dataset.train_path,
+                                   train_batch_size=cfg.loss.batch_size,
+                                   max_span_size=model.hparams.max_span_size)
+    data_module.setup('rel_loss')
+
+    with jsonlines.open(cfg.loss.output_path, mode='w') as writer:
+        for batch in data_module.rel_loss_dataloader():
+            output = model.do_rel_loss(batch, rel_threshold=cfg.model.rel_threshold)
+            writer.write(output)
