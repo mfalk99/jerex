@@ -190,13 +190,10 @@ class JEREXModel(pl.LightningModule):
     def do_rel_loss(self, batch, rel_threshold: float):
 
         # torch.set_printoptions(profile="full")
-        # for key in batch:
-        #     print(key, batch[key].size())
-        # exit()
 
         # inference=False: dont apply sigmoid during forward step.
         # This way we can compute the loss for the batch / sample 
-        output = self(**batch, inference=True)
+        output = self(**batch, inference=False)
         
         # inference
         rel_clf = output['rel_clf']
@@ -206,11 +203,8 @@ class JEREXModel(pl.LightningModule):
         predictions = self._evaluator.convert_batch(rel_clf, batch=batch)
 
         losses = self._compute_loss.compute(**output, **batch)
-        # for key in losses:
-        #     print(key, losses[key].size())
-        # print()
-
-        # build store
+        
+        # build output store
         out = []
 
         assert len(predictions) == 1
@@ -238,7 +232,7 @@ class JEREXModel(pl.LightningModule):
 
         # TODO:
         # - Jinja template
-        # - Relationen, die GT none sind laut model REL haben
+        # - Analyse relationen with GT none but the model prediction some relation
 
 
     def configure_optimizers(self):
