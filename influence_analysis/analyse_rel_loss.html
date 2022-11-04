@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Analyse Relations</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+        .head {
+            color: #ee6666;
+            font-weight: bold;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .tail {
+            color: #3388bb;
+            font-weight: bold;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .type {
+            display: block;
+            font-size: 12px;
+        }
+
+        .border-row-td {
+            border-bottom: solid 1px black !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+
+        .border-row-tr {
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+
+        .border-col-td {
+            border-right: solid 1px black !important;
+        }
+
+        .pert-rel-found {
+            background-color: #00d9697c;
+            vertical-align: middle;
+        }
+
+        .pert-rel-not-found {
+            background-color: #ff294294;
+            vertical-align: middle;
+        }
+
+        .pred-rel-but-not-gt {
+            background-color: #e0ca4f7e;
+            vertical-align: middle;
+        }
+
+        .vertical-center {
+            display: flex;
+            align-items: center;
+        }
+
+        .doc {
+            margin-bottom: 10px;
+        }
+
+        .doc-text {
+            white-space: normal;
+        }
+
+        table.table-bordered {
+            border: 1px solid black;
+            margin-top: 20px;
+        }
+
+        table.table-bordered > thead > tr > th {
+            border: 1px solid black;
+        }
+
+        table.table-bordered > tbody > tr > td {
+            border: 1px solid black;
+        }
+
+    </style>
+</head>
+<body style="overflow-x:scroll; white-space: nowrap; padding-left: 10px; padding-top: 10px;">
+
+<h2> Analyse Relations </h2>
+
+<p></p>
+
+<div id="evaluation">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Doc ID</th>
+            <th>Relations</th>
+            <th>Score</th>
+            <th>Text</th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        
+            <tr class="">
+                <td>2099</td>
+
+                <td>13.2505</td>
+                
+                <td>
+                    GT:<br>
+                    has part <br><br>
+                    Predicted:<br>
+                    None
+                </td>
+
+                <td class="doc-text">Best Wishes is the second album by New York hardcore band , Cro - Mags . It was released on April 26 , 1989 on Profile Records and was subsequently re - released on Another Planet – along with their debut album , The Age Of Quarrel , on the same disc . The album 's cover reflected the band 's interest in the Hare Krishna religion which started with previous singer John Joseph and then carried on through <span class="tail"><span class="type">PER</span>Harley Flanagan</span> who also became a devotee . The Krishna faith was ultimately the demise of the band , as the contradiction of a faith of pacifism against the violence of the band 's music was often even too much for the band members to handle . However , before this , in 1992 , their next album , Alpha Omega , saw the return of John Joseph to the <span class="head"><span class="type">PER</span>Cro - Mags</span> fold , and an even further gravitation towards a metal sound .</td>
+            </tr>
+        
+            <tr class="pred-rel-but-not-gt">
+                <td>1137</td>
+
+                <td>10.3112</td>
+                
+                <td>
+                    GT:<br>
+                    None <br><br>
+                    Predicted:<br>
+                    country (confidence: 0.9696)<br>located in the administrative territorial entity (confidence: 0.9989)
+                </td>
+
+                <td class="doc-text">The Shoghaken Folk Ensemble , an Armenian musical group , performs and records Armenian folk and troubador music . The ensemble was founded in 1995 in Yerevan . It has since performed in <span class="tail"><span class="type">LOC</span>Armenia</span> , France ( including a 2006 performance at the Théâtre de la Ville in <span class="head"><span class="type">LOC</span>Paris</span> ) , Germany , Estonia , Russia , the United Arab Emirates , and the U.S. ( including an eighteen - concert 2004 tour and an appearance at the 2002 Folklife Festival as part of the Silk Road project organized by Yo Yo Ma ) . The music of the Shoghaken Ensemble is featured on the soundtrack of the film Ararat . In 2008 , Shoghaken gave concerts during their second major tour of the US and Canada ; the tour coincided with the release of the ensemble ’s latest CD , Shoghaken Ensemble : Music From Armenia . The group includes the singers Hasmik Harutyunyan and Aleksan Harutyunyan . Its members play traditional Armenian instruments including the duduk , the zurna , the dhol , the kanon , the kamancha , and the shvi .</td>
+            </tr>
+        
+            <tr class="pred-rel-but-not-gt">
+                <td>2600</td>
+
+                <td>9.7656</td>
+                
+                <td>
+                    GT:<br>
+                    None <br><br>
+                    Predicted:<br>
+                    place of birth (confidence: 0.9999)
+                </td>
+
+                <td class="doc-text"><span class="head"><span class="type">PER</span>Carlos Moscardini</span> ( born 1959 ) is an Argentine composer and guitarist . He is professor of tango guitar at the Gilardo Gilardi Conservatory of Music and [ Manuel de Falla ] Conservatory of music in Buenos Aires . <span class="head"><span class="type">PER</span>Moscardini</span> was born in <span class="tail"><span class="type">LOC</span>Lomas de Zamora</span> , in the Gran Buenos Aires metropolitan area . After winning the Soloist Prize for guitar at the first New Popular Music Meeting in his province , he recorded his first solo album , El corazon manda , on Epsa records . The album features compositions of his own and arrangements of famous Argentine folk music . His work won him the public admiration of the guitarist Juan Falù . <span class="head"><span class="type">PER</span>Carlos Moscardini</span> has performed throughout Argentina , Chile , Brazil , Norway , Sweden , Belgium , Denmark and Germany . He has played with the band Nan at the Montreal Jazz Festival . In Japan , he performed over 50 concerts as The History of the Tango . The Buenos Aires Teatro San Martin appointed him composer and arranger . He has lectured on the interpretation of Argentine music at the Norges Musikhögskole in Oslo , at the Royal Danish Academy of Music in Copenhagen , and at the Académie de musique in Ghent .</td>
+            </tr>
+        
+            <tr class="pert-rel-found">
+                <td>1220</td>
+
+                <td>9.6114</td>
+                
+                <td>
+                    GT:<br>
+                    country of citizenship (Perturbed)<br><br>
+                    Predicted:<br>
+                    country of citizenship (confidence: 0.9999)
+                </td>
+
+                <td class="doc-text"><span class="head"><span class="type">PER</span>Marian Andrzej Dudziak</span> ( born 2 February 1941 ) was a <span class="tail"><span class="type">LOC</span>Polish</span> sprinter who specialized in the 100 metres . He was born in Wielichowo and represented the clubs Orkan Poznań and Olimpia Poznań . At the 1964 Summer Olympics he won a silver medal in the 4 x 100 metres relay with teammates Andrzej Zieliński , Wiesław Maniak and Marian Foik . He also competed in the 100 metres event , reaching the quarter - final . He achieved his personal best time in the 100 metres in the same year ; 10.2 seconds with handtiming . He won an individual silver medal in 200 metres at the 1966 European Championships . At the 1967 European Indoor Games he finished fifth in the 50 metres race . He also competed in the relay final , but the team did not finish . At the 1968 European Indoor Games he won a silver medal in the medley relay , which he ran with Edmund Borowski , Waldemar Korycki and Andrzej Badeński . At the 1968 Summer Olympics he finished eighth in the 4 x 100 metres relay and reached the quarter - final in the 100 metres event . At the 1971 European Championships he won a silver medal in the 4 x 100 metres relay together with Gerard Gramse , Tadeusz Cuch and Zenon Nowosz . He became <span class="tail"><span class="type">LOC</span>Polish</span> 100 metres champion in 1968 and 200 metres champion in 1966 .</td>
+            </tr>
+        
+            <tr class="pred-rel-but-not-gt">
+                <td>2667</td>
+
+                <td>9.5338</td>
+                
+                <td>
+                    GT:<br>
+                    None <br><br>
+                    Predicted:<br>
+                    country (confidence: 0.9999)
+                </td>
+
+                <td class="doc-text">Anti - Katyn ( , ) is a propaganda campaign intended to reduce the impact of the Katyn massacre of 1940 — when approximately 22,000 Polish citizens were murdered by the <span class="head"><span class="type">ORG</span>NKVD</span> on the orders of Joseph Stalin — by referencing the deaths of thousands of Russian and Red Army soldiers at Polish internment camps from 1919 – 1924 . " Anti - Katyn " first emerged around 1990 . After the Soviet government admitted that it had previously tried to cover up its responsibility for the massacre by claiming that it was perpetrated by the Nazi German army , previously neglected research into the fate of Soviet POWs in <span class="tail"><span class="type">LOC</span>Poland</span> in 1920s was revived to be used as a " tit - for - tat " argument in the discussions of Katyn . Polish historian Andrzej Nowak summarized " Anti - Katyn " as an attempt by some Russian historians and publicists to " overshadow the memory of the crimes of the Soviet system against the Poles , creating imaginary analogies or even justification " because of the earlier deaths of the prisoners of war .</td>
+            </tr>
+        
+            <tr class="pred-rel-but-not-gt">
+                <td>1600</td>
+
+                <td>9.3362</td>
+                
+                <td>
+                    GT:<br>
+                    None <br><br>
+                    Predicted:<br>
+                    continent (confidence: 0.9400)<br>part of (confidence: 0.9982)
+                </td>
+
+                <td class="doc-text">The is a strait between <span class="head"><span class="type">LOC</span>Honshu</span> and Hokkaido in northern Japan connecting the Sea of Japan with the Pacific Ocean . It was named after the western part of Aomori Prefecture . The Seikan Tunnel passes under it at its narrowest point 12.1 miles ( 19.5   km ) between Tappi Misaki on the Tsugaru Peninsula in Aomori Prefecture , <span class="head"><span class="type">LOC</span>Honshu</span> , and Shirakami Misaki on the Matsumae Peninsula in Hokkaido . Japan 's territorial waters extend to three nautical miles ( 5.6   km ) into the strait instead of the usual twelve , reportedly to allow nuclear - armed United States Navy warships and submarines to transit the strait without violating Japan 's prohibition against nuclear weapons in its territory . The part of the Seikan Tunnel that passes under the strait is considered to be under Japanese sovereignty . The part of the Tsugaru Strait considered to be in international waters is still within Japan 's exclusive economic zone . The Tsugaru Strait has eastern and western necks , both approximately 20   km across with maximum depths of 200 m and 140 m respectively . In the past , the most common way for passengers and freight to cross the strait was by the Seikan ferry , approximately a four - hour journey . On September 26 , 1954 , 1,172 lives were lost when the ferry Tōya Maru sank in the strait . Thomas Blakiston , an English explorer and naturalist , noticed that animals in Hokkaido were related to northern Asian species , whereas those on <span class="head"><span class="type">LOC</span>Honshu</span> to the south were related to those from southern <span class="tail"><span class="type">LOC</span>Asia</span> . The Tsugaru Strait was therefore established as a major zoogeographical boundary , and became known as Blakiston 's Line or the " Blakiston Line " .</td>
+            </tr>
+        
+            <tr class="">
+                <td>3007</td>
+
+                <td>9.2651</td>
+                
+                <td>
+                    GT:<br>
+                    creator <br><br>
+                    Predicted:<br>
+                    manufacturer (confidence: 0.8807)
+                </td>
+
+                <td class="doc-text">Super Mario World is a 1990 side - scrolling platform game developed and published by <span class="tail"><span class="type">ORG</span>Nintendo</span> for the Super Nintendo Entertainment System ( SNES ) . The story follows Mario 's quest to save Princess Toadstool and Dinosaur Land from the series antagonist Bowser and his children , the Koopalings . The gameplay is similar to that of earlier Super Mario games : Players control Mario or his brother Luigi through a series of levels in which the goal is to reach the flagpole at the end . Super Mario World introduced Yoshi , a dinosaur who can eat enemies and gain abilities by eating the shells of Koopa Troopas . Nintendo Entertainment Analysis & Development developed the game , led by director Takashi Tezuka and producer and series creator Shigeru Miyamoto . It is the first Mario game for the SNES and was designed to make the most of the console 's technical features . The development team had more freedom compared to the series instalments for the Nintendo Entertainment System ( NES ) . Yoshi was conceptualised during the development of the NES games but was not used until Super Mario World due to hardware limitations . Super Mario World is often considered one of the greatest video games of all time . It sold over 20 million copies worldwide , making it the bestselling SNES game . It also led to an animated television series of the same name and a prequel , Yoshi 's Island , released in August and October 1995 . It has been rereleased on multiple occasions : It was part of the 1994 compilation Super Mario All - Stars + Super Mario World for the SNES and was rereleased for the Game Boy Advance as Super Mario World : Super Mario Advance 2 in 2001 , on the Virtual Console for the Wii , <span class="head"><span class="type">MISC</span>Wii U</span> , and New Nintendo 3DS consoles , and as part of the Super NES Classic Edition .</td>
+            </tr>
+        
+            <tr class="pert-rel-found">
+                <td>619</td>
+
+                <td>8.9906</td>
+                
+                <td>
+                    GT:<br>
+                    country (Perturbed)<br><br>
+                    Predicted:<br>
+                    country (confidence: 0.9999)
+                </td>
+
+                <td class="doc-text">Miroslaw Balka ( born 1958 , <span class="head"><span class="type">LOC</span>Warsaw</span> , <span class="tail"><span class="type">LOC</span>Poland</span> ) , is a contemporary Polish sculptor and video artist . He graduated from the Warsaw Academy of Fine Arts in 1985 . He currently works in Otwock and <span class="head"><span class="type">LOC</span>Warsaw</span> , <span class="tail"><span class="type">LOC</span>Poland</span> . From 1986 to 1989 , Balka worked in the group Consciousnes Neue Bieriemiennost . He was the 1991 winner of the Mies van der Rohe Stipendium from the Kunstmuseum Krefeld and he is a member of Akademie der Künste , Berlin . Balka runs the Spatial Activities Studio at the Warsaw Academy of Fine Arts . In 2009 , Balka installed How It Is , the 10th Unilever Series commission for the Turbine Hall at Tate Modern , London , which opened on 13 October of that year .</td>
+            </tr>
+        
+            <tr class="">
+                <td>2158</td>
+
+                <td>8.9313</td>
+                
+                <td>
+                    GT:<br>
+                    country <br><br>
+                    Predicted:<br>
+                    None
+                </td>
+
+                <td class="doc-text">World Wide Live is a live album by German rock band Scorpions released in 1985 . The original audio recording was produced by Dieter Dierks . A VHS was released at the same time with footage of Scorpions ' world tour . The live album was originally released as a 2LP vinyl set , in a gatefold - sleeve , and a cassette . The liner notes contain a crew member list , tour date information and when the shows were recorded : Sports Arena , San Diego , CA , <span class="tail"><span class="type">LOC</span>USA</span> ( 4/26/84 ) The Forum , Los Angeles , CA , <span class="tail"><span class="type">LOC</span>USA</span> ( 4/24/84 & 4/25/84 ) <span class="head"><span class="type">LOC</span>Pacific Amphitheatre</span> , Costa Mesa , CA , <span class="tail"><span class="type">LOC</span>USA</span> ( 4/28/84 ) Bercy , Paris , France ( 2/29/84 ) Sporthalle , Cologne , West Germany ( 11/17/84 ) The initial CD release featured 15 tracks ( dropping " Another Piece of Meat " , " Six - String Sting " and " Ca n't Get Enough " , parts 1 & 2 , due to time constraints ) , but the remastered edition of 1997 features the original album in full .</td>
+            </tr>
+        
+            <tr class="pert-rel-found">
+                <td>2091</td>
+
+                <td>8.9285</td>
+                
+                <td>
+                    GT:<br>
+                    educated at (Perturbed)<br><br>
+                    Predicted:<br>
+                    educated at (confidence: 0.9999)
+                </td>
+
+                <td class="doc-text"><span class="head"><span class="type">PER</span>Pasi Juhani Rutanen</span> ( born . 23 October 1936 Jyväskylä ) is a Finnish journalist and diplomat . <span class="head"><span class="type">PER</span>Rutanen</span> studied at the <span class="tail"><span class="type">ORG</span>University of Helsinki</span> and did same time cartoons and columns at the Ylioppilaslehti . After graduating as a bachelor of political science he went to Finnish Broadcasting Company . In the mid-1960s , he was sent to the United States as the first Washington correspondent of the Finnish Broadcasting Company , until he moved to the diplomatic service in 1970 . <span class="head"><span class="type">PER</span>Rutanen</span> is especially remembered of the reports from Houston about of the Apollo 11 flight which landed on the moon . <span class="head"><span class="type">PER</span>Rutanen</span> was an Ambassador from 1984 to 1987 in Manila and served as Deputy Director General of the Development Cooperation Department in the Ministry of Foreign Affairs between 1987 and 1989 , as a negotiating officer from 1989 to 1991 , Ambassador to Bangkok in years 1984 – 1986 Finland 's ambassador to the OECD delegation in Paris 1991 – 1997 and Ambassador in Beijing 1997–2001 <span class="head"><span class="type">PER</span>Rutanen</span> lives with his American wife in Paris</td>
+            </tr>
+        
+            <tr class="pred-rel-but-not-gt">
+                <td>3052</td>
+
+                <td>8.8253</td>
+                
+                <td>
+                    GT:<br>
+                    None <br><br>
+                    Predicted:<br>
+                    country (confidence: 0.9999)
+                </td>
+
+                <td class="doc-text">Lark Force was an Australian Army formation established in March 1941 during World War II for service in New Britain and New Ireland . Under the command of Lieutenant Colonel John Scanlan , it was raised in <span class="tail"><span class="type">LOC</span>Australia</span> and deployed to Rabaul and Kavieng , aboard SS Katoomba , MV Neptuna and HMAT Zealandia , to defend their strategically important harbours and airfields . The objective of the force , was to maintain a forward air observation line as long as possible and to make the enemy fight for this line rather than abandon it at the first threat as the force was considered too small to withstand any invasion . Most of Lark Force was captured by the <span class="head"><span class="type">ORG</span>Imperial Japanese Army</span> after Rabaul and Kavieng were captured in January 1942 . The officers of Lark Force were transported to Japan , however the NCOs and men were unfortunately torpedoed by the USS Sturgeon while being transported aboard the Montevideo Maru . Only a handful of the Japanese crew were rescued , with none of the between 1,050 and 1,053 prisoners aboard surviving as they were still locked below deck .</td>
+            </tr>
+        
+            <tr class="pert-rel-found">
+                <td>148</td>
+
+                <td>8.7793</td>
+                
+                <td>
+                    GT:<br>
+                    located in the administrative territorial entity (Perturbed)<br><br>
+                    Predicted:<br>
+                    located in the administrative territorial entity (confidence: 0.9998)
+                </td>
+
+                <td class="doc-text">Fawkner railway station is located on the <span class="head"><span class="type">LOC</span>Upfield</span> line in <span class="tail"><span class="type">LOC</span>Victoria</span> , Australia . It serves the northern Melbourne suburb of Hadfield , as well as neighbouring suburb Fawkner . The station opened on 8 October 1889 as Fawkner . It closed on 13 July 1903 , reopening on 12 December 1906 as Fawkner Cemetery , and resumed the Fawkner name in 1914 . It is located adjacent to the Fawkner Crematorium and Memorial Park , which opened in 1906 , and from then until 1939 , special mortuary trains ran . From October 1914 , only seven trains daily ran to Fawkner , as well as the daily mortuary train to the cemetery . A former mortuary van is located near the entrance to Platform 2 . Until 1959 , Fawkner was the extent of suburban electrified services , with an AEC railmotor used from 1928 until 1959 , to provide a connecting service north to Somerton . Until 1998 , the station had one platform ( present day Platform 2 ) . The second track and Platform 1 were added as part of the duplication of the line between Fawkner and Gowrie .</td>
+            </tr>
+        
+            <tr class="pert-rel-not-found">
+                <td>2034</td>
+
+                <td>8.6282</td>
+                
+                <td>
+                    GT:<br>
+                    publication date (Perturbed)<br><br>
+                    Predicted:<br>
+                    None
+                </td>
+
+                <td class="doc-text">The GOST block cipher ( Magma ) , defined in the standard GOST 28147 - 89 ( RFC 5830 ) , is a Soviet and Russian government standard symmetric key block cipher with a block size of 64 bits . The original standard , published in 1989 , did not give the cipher any name , but the most recent revision of the standard , GOST R 34.12 - 2015 , specifies that it may be referred to as Magma . The <span class="head"><span class="type">MISC</span>GOST hash function</span> is based on this cipher . The new standard also specifies a new 128-bit block cipher called Kuznyechik . Developed in the 1970s , the standard had been marked " Top Secret " and then downgraded to " Secret " in 1990 . Shortly after the dissolution of the USSR , it was declassified and it was released to the public in <span class="tail"><span class="type">TIME</span>1994</span> . GOST 28147 was a Soviet alternative to the United States standard algorithm , DES Thus , the two are very similar in structure .</td>
+            </tr>
+        
+            <tr class="pert-rel-found">
+                <td>2555</td>
+
+                <td>8.4178</td>
+                
+                <td>
+                    GT:<br>
+                    director (Perturbed)<br><br>
+                    Predicted:<br>
+                    director (confidence: 0.9998)
+                </td>
+
+                <td class="doc-text">Barry Alexander Brown ( born 2 November 1960 in Warrington , Cheshire ) is an English born - American film director and editor . As a film editor , he is best known for collaborations with film director <span class="tail"><span class="type">PER</span>Spike Lee</span> , editing some of <span class="tail"><span class="type">PER</span>Lee</span> 's best known films including <span class="head"><span class="type">MISC</span>Do the Right Thing</span> ( 1989 ) , Malcolm X ( 1992 ) , He Got Game ( 1998 ) , 25th Hour ( 2002 ) , Inside Man ( 2006 ) , and BlacKkKlansman ( 2018 ) . As a film director , Brown co - directed the documentary film The War at Home ( 1979 ) , for which it was nominated for an Academy Award for Best Documentary Feature and was one of the youngest nominees for the category . Some of his other film directing credits include The Who 's Tommy , the Amazing Journey ( 1993 ) , a documentary film about The Who 's Tommy album , and the feature film Winning Girls Through Psychic Mind Control ( 2002 ) , starring Bronson Pinchot . Brown has also edited music videos for Michael Jackson , Prince , Stevie Wonder , Public Enemy and Arrested Development . He is a former associate professor of Film Studies at Columbia University .</td>
+            </tr>
+        
+            <tr class="">
+                <td>2584</td>
+
+                <td>8.3358</td>
+                
+                <td>
+                    GT:<br>
+                    mouth of the watercourse <br><br>
+                    Predicted:<br>
+                    None
+                </td>
+
+                <td class="doc-text">Lake Abitibi ( ) is a lake in northeastern Ontario and western Quebec , Canada . The lake , which lies within the vast Clay Belt , is separated in two distinct portions by a short narrows , making it actually 2 lakes . Its total area is 931   km² , and net area 903   km² . The lake is shallow and studded with islands . Its shores and vicinity are covered with small timber . Its outlet is the <span class="head"><span class="type">LOC</span>Abitibi River</span> , a tributary the Moose River , which empties into <span class="tail"><span class="type">LOC</span>James Bay</span> . The lake takes its name from the river . " Abitibi " comes from the Algonquin words abitah , meaning middle and nipi meaning water , possibly a reference to its geographic location between the Harricana ( from the Algonquin word Nanikana , meaning " the main way " ) to the east and the Kapuskasing – Mattagami river system to the west .</td>
+            </tr>
+        
+            <tr class="pert-rel-found">
+                <td>3011</td>
+
+                <td>8.1220</td>
+                
+                <td>
+                    GT:<br>
+                    location (Perturbed)<br><br>
+                    Predicted:<br>
+                    location (confidence: 0.9670)<br>country (confidence: 0.9908)
+                </td>
+
+                <td class="doc-text">Arras Cathedral ( French : Cathédrale Notre - Dame - et - Saint - Vaast d'Arras ) is the Roman Catholic church in the city of Arras , <span class="tail"><span class="type">LOC</span>France</span> . The cathedral is the seat of the Bishops of Arras . The original cathedral of Arras , constructed between 1030 and 1396 , was one of the most beautiful Gothic structures in northern <span class="tail"><span class="type">LOC</span>France</span> , until it was destroyed in the French Revolution . The cathedral was the resting place of Louis de Bourbon , Légitimé de France , a legitimated son of Louis XIV and Louise de La Vallière . The church of the former St. Vaast 's Abbey was rebuilt in classical style as a replacement cathedral . The design was chosen by the former abbot of St. Vaast 's , the Cardinal de Rohan , and is of remarkable simplicity . It is ' a very large building , the erection of which was begun in 1755 from plans by Pierre Contant d'Ivry , the architect who later created designs for the Church of La Madeleine in Paris . The work was interrupted during the Revolution , then resumed by virtue of a municipal decree dated “ Nivôse 27 , Year XII ” , which ran : “ ... to erect the edifice , abandoning everything in the original plans connected with decoration and architectural beauty , limiting the work to the requirements of solidity and decency . ” The church was finished in accordance with these prescriptions , being completed in 1834 . The interior was of plaster - coated brickwork , whilst the columns were of undressed stone , covered with stone - coloured mortar . The capitals were of stucco - work . ' Arras Cathedral was heavily damaged by shelling in April 1917 , during the run - up to the <span class="head"><span class="type">MISC</span>Nivelle offensives</span> of World War I , and subsequently rebuilt in its previous form . The cathedral is adjacent to the Musée des beaux - arts d'Arras , formerly the Benedictine Abbey of Saint - Vaast .</td>
+            </tr>
+        
+            <tr class="pert-rel-found">
+                <td>1510</td>
+
+                <td>7.9949</td>
+                
+                <td>
+                    GT:<br>
+                    country (Perturbed)<br><br>
+                    Predicted:<br>
+                    country (confidence: 0.9997)
+                </td>
+
+                <td class="doc-text">Parramatta Stadium was a sports stadium in Parramatta , New South Wales , Australia , 23 kilometres west of Sydney 's central business district . The stadium was the home ground of several western Sydney - based sports teams , at the time of closure the most notable were the Parramatta Eels of the <span class="head"><span class="type">ORG</span>National Rugby League</span> and the Western Sydney Wanderers of the A - League . Cumberland Oval was the local name for the cricket , motor sports & rugby venue that had existed prior to Parramatta Stadium being built , with the area having been used for recreational activities since 1788 , the founding year of the British colony in New South Wales . The stadium also hosted numerous other sporting and cultural events since its opening in 1986 . Michael Jackson performed there during his Bad World Tour on 20–21 November 1987 , and Paul McCartney concluded the <span class="tail"><span class="type">LOC</span>Australian</span> leg of The New World Tour with two shows there on 22–23 March 1993 . In 2015 the NSW Government announced that the stadium would be demolished & replaced , and to that end , Parramatta Stadium was demolished in February 2017 , with the new Western Sydney Stadium being built in the same location .</td>
+            </tr>
+        
+            <tr class="pert-rel-found">
+                <td>884</td>
+
+                <td>7.9365</td>
+                
+                <td>
+                    GT:<br>
+                    contains administrative territorial entity (Perturbed)<br><br>
+                    Predicted:<br>
+                    contains administrative territorial entity (confidence: 0.9996)
+                </td>
+
+                <td class="doc-text">Medical Center is an island platformed Washington Metro station in Bethesda , <span class="tail"><span class="type">LOC</span>Maryland</span> , <span class="head"><span class="type">LOC</span>United States</span> . The station was opened on August 25 , 1984 , and is operated by the Washington Metropolitan Area Transit Authority ( WMATA ) . Providing service for the Red Line , the station serves the National Institutes of Health campus and the Walter Reed National Military Medical Center and is located at Rockville Pike and South Drive . Since there is little retail in the area and no commuter parking lot , this station is used almost exclusively by employees and visitors to those two institutions . The station opened on August 25 , 1984 . Its opening coincided with the completion of of rail northwest of the Van Ness – UDC station and the opening of the Bethesda , Friendship Heights , Grosvenor and Tenleytown stations . In September 2009 , Montgomery County submitted a $ 20 million federal grant application to build a pedestrian tunnel under Rockville Pike to improve access to the Medical Center stop from Walter Reed Medical Center . Currently , there is only a crosswalk here , with many passengers crossing the heavily travelled street from Walter Reed on the east side of MD 355 to get to the station on the west side . Construction would have originally occurred in 2011 , but the project was not approved until 2013 . The project is fully funded at $ 68 million , mostly through the Department of Defense , and includes installation of new deep elevators , improvement of surface bicycle and pedestrian facilities , as well as an extension of the left turn lane on southbound MD 355 . The project began construction in December 2017 , and is expected to be completed in late 2021 .</td>
+            </tr>
+        
+            <tr class="pred-rel-but-not-gt">
+                <td>2450</td>
+
+                <td>7.8759</td>
+                
+                <td>
+                    GT:<br>
+                    None <br><br>
+                    Predicted:<br>
+                    place of death (confidence: 0.9996)
+                </td>
+
+                <td class="doc-text"><span class="head"><span class="type">PER</span>John Harvey Tolan</span> (; January 15 , 1877 – June 30 , 1947 ) was a U.S. Representative from California . Born in St. Peter , Minnesota , <span class="head"><span class="type">PER</span>Tolan</span> attended the public schools . He moved to Anaconda , Montana , in 1897 . He was graduated from the law department of the University of Kansas at Lawrence in 1902 . He was admitted to the bar the same year and commenced the practice of law in Anaconda , Montana and served as attorney of Deer Lodge County , Montana from 1904 to 1906 . He moved to Oakland , California , in 1914 and continued the practice of law . <span class="head"><span class="type">PER</span>Tolan</span> was elected as a Democrat to the Seventy - fourth and to the five succeeding Congresses ( January 3 , 1935 – January 3 , 1947 ) . He was not a candidate for renomination in 1946 to the Eightieth Congress . He died in Westwood , <span class="tail"><span class="type">LOC</span>Los Angeles</span> , California , on June 30 , 1947 . He was interred at Holy Sepulchre Cemetery , Hayward , California .</td>
+            </tr>
+        
+            <tr class="pred-rel-but-not-gt">
+                <td>1249</td>
+
+                <td>7.8266</td>
+                
+                <td>
+                    GT:<br>
+                    None <br><br>
+                    Predicted:<br>
+                    country (confidence: 0.9996)
+                </td>
+
+                <td class="doc-text">Brasiguaio ( Portuguese ) or brasiguayo ( Spanish ) is a term referring to <span class="tail"><span class="type">LOC</span>Brazilian</span> migrants in Paraguay and their descendants . The word Brasiguaio has been used by members within and outside this group to categorize individuals whose lives are connected with both <span class="tail"><span class="type">LOC</span>Brazil</span> and Paraguay , and more specifically to refer to Brazilians who live or have lived in Paraguay . They typically live in the Southeastern Paraguayan departments of Canindeyú and Alto Paraná , which border with <span class="tail"><span class="type">LOC</span>Brazil</span> . Most emigrated from <span class="tail"><span class="type">LOC</span>Brazil</span> by the 1960s . They are often accused of imposing on the culture , language and currency of Paraguay . In total they make up 455,000 Brasiguaios , or about one - tenth of Paraguay 's population . In some border zones , Brasiguayos and their descendants are more than 90 % of the population , where Portuguese is still spoken as the mother tongue . In <span class="head"><span class="type">LOC</span>San Alberto de Mbaracayú</span> city , approximately 80 % of its 23,000 inhabitants are of <span class="tail"><span class="type">LOC</span>Brazilian</span> ancestry . The origins of Brasiguayos are from the three states of the South Region of Brazil , Paraná , Santa Catarina , and Rio Grande do Sul . Most Brasiguayos are mainly ethically White of German , Italian , and Polish descent .</td>
+            </tr>
+        
+            <tr class="pred-rel-but-not-gt">
+                <td>1482</td>
+
+                <td>7.7774</td>
+                
+                <td>
+                    GT:<br>
+                    None <br><br>
+                    Predicted:<br>
+                    country (confidence: 0.9639)<br>located in the administrative territorial entity (confidence: 0.9884)
+                </td>
+
+                <td class="doc-text">Worcester County is the easternmost county of the <span class="tail"><span class="type">LOC</span>U.S.</span> state of <span class="head"><span class="type">LOC</span>Maryland</span> . As of the 2010 census , the population was 51,454 . Its county seat is Snow Hill . The county was named for Mary Arundell , the wife of Sir John Somerset , a son of Henry Somerset , 1st Marquess of Worcester . She was sister to Anne Arundell ( Anne Arundel County ) , wife of Cecil Calvert , 2nd Baron Baltimore , the first Proprietor and Proprietary Governor of the Province of Maryland . Worcester County is included in the Salisbury , MD - DE Metropolitan Statistical Area . The county includes the entire length of the state 's ocean and tidewater coast along the Intracoastal Waterway bordering Assawoman Bay , Isle of Wight Bay , Sinepuxent Bay , and Chincoteague Bay between the sand barrier islands of Fenwick Island and Assateague Island bordering the Atlantic Ocean coast . It is home to the popular vacation resort area of Ocean City , founded 1875 , as well as wild habitats on the primitive wilderness areas on Assateague Island and in the Pocomoke River and Swamp .</td>
+            </tr>
+        
+            <tr class="pred-rel-but-not-gt">
+                <td>2311</td>
+
+                <td>7.6473</td>
+                
+                <td>
+                    GT:<br>
+                    None <br><br>
+                    Predicted:<br>
+                    country of citizenship (confidence: 0.9995)
+                </td>
+
+                <td class="doc-text"><span class="head"><span class="type">PER</span>Charles Olmeus</span> ( born February 16 , 1947 ) is a <span class="tail"><span class="type">LOC</span>Haitian</span> former track and field athlete who competed at the 1976 Olympic Games in Montreal . <span class="head"><span class="type">PER</span>Charles</span> competed at 10000 metres , and completed his qualifying heat in 42:00.11 . He finished 14 minutes behind the heat winner Carlos Lopes of Portugal and 8.5 minutes behind Chris McCubbins of Canada who finished next to last . While he completed the last six rounds alone on the field , track officials argued whether he should be allowed to finish the course . Ultimately he was , which held up the entire track and field schedule by fourteen minutes . <span class="head"><span class="type">PER</span>Charles</span> was one of the members of the notorious squad of <span class="tail"><span class="type">LOC</span>Haitian</span> long distance track and field athletes delegated to the Olympic Games by the Baby Doc Duvalier regime during the 1970s and 1980s , who gained fame by setting all - time worst times on the Olympics , many of which are still standing today . Other notable performers included Anilus Joseph who started his 1972 10000 metres qualifying heat in a sprint then dropped out when he was already a mile behind the leaders , Wilnor Joseph who covered the 800 metres with a time of 2:15.26 in 1976 , and Dieudonne Lamothe who finished last at both the 5000 metres in 1976 and at the marathon race in 1984 .</td>
+            </tr>
+        
+            <tr class="pred-rel-but-not-gt">
+                <td>1923</td>
+
+                <td>7.6347</td>
+                
+                <td>
+                    GT:<br>
+                    None <br><br>
+                    Predicted:<br>
+                    publication date (confidence: 0.9995)
+                </td>
+
+                <td class="doc-text">Elizabeth Anne Caplan ( born June 30 , 1982 ) is an American actress and model . Her first acting role was on the cult television series Freaks and Geeks ( 1999–2000 ) . She received wider recognition with roles in the films Mean Girls ( 2004 ) and Cloverfield ( 2008 ) , the latter of which earned her a nomination for the Saturn Award for Best Supporting Actress . Caplan has also starred on the TV shows Related ( 2005 – 2006 ) , The Class ( 2006–2007 ) , and Party Down ( 2009 – <span class="tail"><span class="type">TIME</span>2010</span> ) . From 2013 to 2016 , she played Virginia Johnson on the Showtime series Masters of Sex , a role that garnered her Primetime Emmy , Satellite , and Critics ' Choice Award nominations . Her other film appearances include Hot Tub Time Machine , <span class="head"><span class="type">MISC</span>127 Hours</span> ( both <span class="tail"><span class="type">TIME</span>2010</span> ) , Save the Date , Bachelorette ( both 2012 ) , The Interview ( 2014 ) , Now You See Me 2 , Allied ( both 2016 ) , and Extinction ( 2018 ) .</td>
+            </tr>
+        
+            <tr class="pred-rel-but-not-gt">
+                <td>2153</td>
+
+                <td>7.6181</td>
+                
+                <td>
+                    GT:<br>
+                    None <br><br>
+                    Predicted:<br>
+                    located in the administrative territorial entity (confidence: 0.9995)
+                </td>
+
+                <td class="doc-text">Michelle LaVallee is a Canadian curator , artist , and educator of Ojibway ancestry and a member of the Nawash Band in Cape Croker , Ontario . She has BFA ( 2000 ) and BEd ( 2004 ) degrees from York University in Toronto , Ontario . Her most recent degree is an MA in Art History and Curatorial Studies from the University of Regina in <span class="head"><span class="type">LOC</span>Regina</span> , <span class="tail"><span class="type">LOC</span>Saskatchewan</span> , with a special focus on the complex , contextual , and interactive nature of Aboriginal curatorial practices in the development of curatorial and art historical research models . She has been working as a curator at the MacKenzie Art Gallery in <span class="head"><span class="type">LOC</span>Regina</span> , <span class="tail"><span class="type">LOC</span>Saskatchewan</span> since 2007 . Lavallee won the award for Excellence in Arts Related Service at the Mayors ' Arts and Business Awards in <span class="head"><span class="type">LOC</span>Regina</span> , <span class="tail"><span class="type">LOC</span>Saskatchewan</span> in 2013 . Activating and developing greater understanding of misrepresented or marginalized histories is of personal and political import for LaVallee whose critical thought is influenced from her experience working with Indigenous peoples in Canada , El Salvador , Australia and Aotearoa ( New Zealand )</td>
+            </tr>
+        
+            <tr class="pred-rel-but-not-gt">
+                <td>216</td>
+
+                <td>7.6160</td>
+                
+                <td>
+                    GT:<br>
+                    None <br><br>
+                    Predicted:<br>
+                    country (confidence: 0.9995)
+                </td>
+
+                <td class="doc-text">Rodney Allan Atkins ( born March 28 , 1969 ) is an <span class="tail"><span class="type">LOC</span>American</span> country music artist . Signed to Curb Records in 1996 , he charted his first single on the <span class="head"><span class="type">MISC</span>Billboard</span> country chart in 1997 , but did not release an album until 2003 's Honesty , which included the number 4 hit " Honesty ( Write Me a List ) " . If You 're Going Through Hell , his second album , was released in 2006 . Its first two singles , " If You 're Going Through Hell ( Before the Devil Even Knows ) " and " Watching You " , each spent four weeks at the top of the country music chart , and were respectively ranked as the top country songs of 2006 and 2007 according to Billboard Year - End . The album , which has since been certified platinum in the United States , produced two more number 1 singles in " These Are My People " and " Cleaning This Gun ( Come On In Boy ) " . It 's America ( 2009 ) included the number 1 single " It 's America " and the top 5 hit " Farmer 's Daughter " , which was added to a later reissue of the album . Take a Back Road ( 2011 ) produced his sixth number 1 in its title track . Atkins has received six nominations from the Academy of Country Music and two from the Country Music Association , winning Top New Male Vocalist from the former in 2006 .</td>
+            </tr>
+        
+            <tr class="pred-rel-but-not-gt">
+                <td>1124</td>
+
+                <td>7.5210</td>
+                
+                <td>
+                    GT:<br>
+                    None <br><br>
+                    Predicted:<br>
+                    country of citizenship (confidence: 0.9995)
+                </td>
+
+                <td class="doc-text">Louis Jani ( born December 6 , 1957 in Montreal , Quebec ) is a judoka from Canada , who represented his native country at two consecutive Summer Olympics : 1984 and 1988 . He had unfortunately missed the 1980 Moscow Olympics due to Canada 's boycott . Louis twice won the gold medal at the Pan American Games ( 1979 and 1983 ) in the middleweight division ( – 86   kg ) . Competing as a member of Team Canada for 15 years , Louis went on to become the Technical Director for Judo Canada and eventually the National Coach . As National Coach he led the <span class="tail"><span class="type">LOC</span>Canadian</span> team at the 2000 Olympic Summer Games in Sydney , Australia , where <span class="head"><span class="type">PER</span>Nicolas Gill</span> won a silver medal . Currently Louis Jani lives in Ottawa , Ontario and works as a Manager of Regional Affairs at the Department of Canadian Heritage .</td>
+            </tr>
+        
+            <tr class="">
+                <td>2001</td>
+
+                <td>7.5075</td>
+                
+                <td>
+                    GT:<br>
+                    publication date <br><br>
+                    Predicted:<br>
+                    None
+                </td>
+
+                <td class="doc-text">The <span class="head"><span class="type">MISC</span>Road to Ruin</span> is a <span class="tail"><span class="type">TIME</span>1970</span> album released by husband and wife John and Beverley Martyn . It was the second ( and last ) album released as a duo . Island Records persuaded John Martyn to resume his solo career as they believed that the public was more interested in John as a solo artist rather than as part of a duo . The album marked the first collaboration on record between John and bassist Danny Thompson , who featured on many of Martyn 's subsequent recordings . The album 's first track " Primrose Hill " written and sung by Beverley Martyn , and featuring Ray Warleigh on saxophone , about the simple joys of domesticity , was extensively sampled by Fatboy Slim for the track " North West Three " from his 2004 album Palookaville .</td>
+            </tr>
+        
+            <tr class="">
+                <td>1650</td>
+
+                <td>7.4734</td>
+                
+                <td>
+                    GT:<br>
+                    country <br><br>
+                    Predicted:<br>
+                    None
+                </td>
+
+                <td class="doc-text">Andrea Dandolo ( died September 1298 ) , noble of Venice , was the commander of the Venetian fleet that confronted the <span class="tail"><span class="type">LOC</span>Genoan</span> fleet in the Battle of Curzola ( 8 September 1298 ) , which ended in disaster for the Venetians . During this battle Marco Polo , in command of one of the ninety - eight Venetian galleys , was captured - it was during this imprisonment that he began to write his Travels . Andrea was also captured by the <span class="head"><span class="type">ORG</span>Genoese</span> ; contemporary historians report that " Andrea Dandolo , being unable to bear the disgrace of such defeat , beating his head against the wooden hull of the galley taking him to prison , killed himself " , depriving the <span class="head"><span class="type">ORG</span>Genoese</span> of the satisfaction of executing him .</td>
+            </tr>
+        
+            <tr class="pert-rel-found">
+                <td>249</td>
+
+                <td>7.4038</td>
+                
+                <td>
+                    GT:<br>
+                    located in the administrative territorial entity (Perturbed)<br><br>
+                    Predicted:<br>
+                    located in the administrative territorial entity (confidence: 0.9994)
+                </td>
+
+                <td class="doc-text">The Suda ( ) is a river in Babayevsky , Kaduysky , and Cherepovetsky Districts of <span class="tail"><span class="type">LOC</span>Vologda Oblast</span> in Russia . It flows into the Rybinsk Reservoir of the Volga River . It is long , with a drainage basin of and an average discharge of . Its main tributaries are the Shogda , the Andoga , the Kolp , the Voron and the Petukh rivers . The source of the Suda is the confluence of the Koloshma and the Nozhema Rivers in the northwest of Babayevsky District of <span class="tail"><span class="type">LOC</span>Vologda Oblast</span> , close to the border with Leningrad Oblast . The river flows in the general direction southeast . Almost the whole valley of the Suda is populated . The selo of Borisovo - Sudskoye , located in the upper course of the river , is named after the Suda . Between 1927 and 1959 it was an administrative center of Borisovo - Sudsky District of Leningrad Oblast and of <span class="tail"><span class="type">LOC</span>Vologda Oblast</span> . The historic Khvalevskoye Manor is located in the selo of Borisovo - Sudskoye on a 30-meter high banks of the Suda river . In the lower course , between the mouths of the Kolp ( left ) and the Andoga ( right ) the Suda runs close to the urban - type settlement of Kaduy , the center of Kaduysky District , located on the left bank . The mouth of the Suda is located in the settlement of Suda , and the lower course is essentially a bay of the Rybinsk Reservoir . The river basin of the Suda comprises vast area in the west of <span class="tail"><span class="type">LOC</span>Vologda Oblast</span> , in particular , almost all of Babayevsky District , almost all of Kaduysky District , large areas in Belozersky and Cherepovetsky District of <span class="tail"><span class="type">LOC</span>Vologda Oblast</span> and in Boksitogorsky District of Leningrad Oblast , as well as minor areas in Vytegorsky and <span class="head"><span class="type">LOC</span>Ustyuzhensky Districts</span> of <span class="tail"><span class="type">LOC</span>Vologda Oblast</span> and Tikhvinsky and Podporozhsky Districts of Leningrad Oblast . There are many lakes in the river basin of the Suda , mostly of glacial origin . The biggest of the lakes is Lake Andozero in Belozersky District . The lower course of the Suda ( ) is listed in the State Water Register of Russia as navigable , however , there is no passenger navigation .</td>
+            </tr>
+        
+            <tr class="pred-rel-but-not-gt">
+                <td>725</td>
+
+                <td>7.3995</td>
+                
+                <td>
+                    GT:<br>
+                    None <br><br>
+                    Predicted:<br>
+                    located in the administrative territorial entity (confidence: 0.9994)
+                </td>
+
+                <td class="doc-text"><span class="tail"><span class="type">LOC</span>Gloppen</span> is a municipality in the county of Sogn og Fjordane , Norway . It is located in the traditional district of Nordfjord . <span class="tail"><span class="type">LOC</span>Gloppen</span> is generally subdivided into three areas : Hyen in the west , <span class="tail"><span class="type">LOC</span>Gloppen</span> in the center , and <span class="head"><span class="type">LOC</span>Breim</span> in the east . Each of the areas have their own main service centres . Sandane , the administrative centre of the municipality , is the largest with about 2,500 inhabitants . Sandane , Vereide , and Sørstranda are centered on the Gloppefjorden in <span class="tail"><span class="type">LOC</span>Gloppen</span> in the central part of the municipality . The villages of Byrkjelo , Re , Kandal , and Egge are centered on the lake Breimsvatnet in the <span class="head"><span class="type">LOC</span>Breim</span> area in the east . The villages of Straume , Eimhjellen , and Solheim are located around the Hyefjorden in Hyen in the west . The whole municipality sits on the southern side of the large Nordfjorden . The European route E39 highway runs through the municipality before crossing the Nordfjorden on a car ferry . The Sandane Airport , Anda is located along the E39 highway , just north of Vereide . The municipality is the 105th largest by area out of the 422 municipalities in Norway . <span class="tail"><span class="type">LOC</span>Gloppen</span> is the 180th most populous municipality in Norway with a population of 5,783 . The municipality 's population density is and its population has increased by 1 % over the last decade .</td>
+            </tr>
+        
+            <tr class="">
+                <td>579</td>
+
+                <td>7.3925</td>
+                
+                <td>
+                    GT:<br>
+                    located in the administrative territorial entity <br><br>
+                    Predicted:<br>
+                    None
+                </td>
+
+                <td class="doc-text">Mustansiriyah University ( Arabic : الجامعة المستنصرية ) is a university in <span class="tail"><span class="type">LOC</span>Baghdad</span> , Iraq . The original Mustansiriya Madrasah , was established in 1227 ( or 1232/34 A.D. by some accounts ) by the Abbasid Caliph Al - Mustansir and was one of the oldest universities in the world . Its building , on the left bank of the Tigris River , survived the Mongol invasion of 1258 and has been restored . The modern Mustansiriyah University was established with the help and financial support of the Republic of Ίrāq Teacher ’s Union in 1963 , mainly providing evening courses . In 1964 , the University was given the status of a semi - state institution and some state financial support . At the same time it absorbed Al - Sha’ab University , another private university that had been founded by the Ίrāqi Association of Economists , and then moved to a new campus to the north of the city centre . Initially , the University also managed colleges in Mosul and Basra . In 1966 a law was passed under which the private universities were converted into public universities . Mustansiriyah thus became , briefly , a College within the <span class="head"><span class="type">ORG</span>University of Baghdad</span> . In 1967 a major reorganisation of higher education was initiated , with the intention that by 1969 all previous institutions would be abolished and reconstituted . Mustansiriyah was designated as a separate University in 1968 , and its branch campuses were detached to form part of the University of Mosul and the University of Basra .</td>
+            </tr>
+        
+            <tr class="">
+                <td>279</td>
+
+                <td>7.3659</td>
+                
+                <td>
+                    GT:<br>
+                    headquarters location <br><br>
+                    Predicted:<br>
+                    None
+                </td>
+
+                <td class="doc-text">Outotec Oyj is a Finnish listed technology company that was created when <span class="head"><span class="type">ORG</span>Outokumpu Oyj</span> span off its technology business into a separate entity in 2006 . It focuses more on design and consulting than manufacturing , and it purchases the majority of its products from subcontracted manufacturers , making only the key components itself . Manufacturing is carried out at Outotec 's workshop in the city of Outokumpu , which makes equipment , and at the former Larox plant in <span class="tail"><span class="type">LOC</span>Lappeenranta</span> , where industrial filters are manufactured . Outotec is a technology company as well as a project company , selling complex mining technology and plant projects that it first designs and then executes itself or in collaboration with its partners . Outotec assembles the supply chain , designs and delivers the process , and trains the client to manage it . Outotec delivers its technologies and processes for metallurgy and mineral processing . Outotec 's technologies are used for applications such as producing base metals , processing iron ore , ferroalloys , and raw materials containing titanium , producing sulfuric acid , producing aluminium oxide and light metals , processing exhaust gases , coking , producing bioenergy , refining oil shale and oil sands , and treating industrial wastewater . Processes developed by Outotec enable aluminiferous clay , paper sludge , and slag heaps created during the process to be converted into raw materials for synthetic sapphire , biorefineries , or copper . Outotec 's environment and energy business has grown alongside its traditional ore and metal technology . Mines and refineries consume enormous quantities of water and energy , but Outotec 's applications enable a significant reduction in consumption .</td>
+            </tr>
+        
+            <tr class="">
+                <td>358</td>
+
+                <td>7.3295</td>
+                
+                <td>
+                    GT:<br>
+                    country <br><br>
+                    Predicted:<br>
+                    None
+                </td>
+
+                <td class="doc-text">Northern Seminary is a Christian seminary located in Lisle , Illinois , <span class="tail"><span class="type">LOC</span>US</span> , near Chicago . It was founded in 1913 by the <span class="head"><span class="type">ORG</span>Second Baptist Church of Chicago</span> as " Northern Baptist Theological Seminary " to prepare students for church leadership , and it continues to represent a theologically conservative alternative within its association with the American Baptist Churches in the <span class="tail"><span class="type">LOC</span>USA</span> ( historically the Northern Baptist convention ) . Northern is an evangelical Christian educational institution , affirming the authority of Scripture and emphasizing the importance of fulfilling the mission set forth by Jesus of going forth and spreading the Gospel . It holds full accreditation from the Association of Theological Schools in the United States and Canada . In 2004 Northern 's then - president Charles Moore joined many other Protestant evangelicals in endorsing Roman Catholic film director Mel Gibson 's The Passion of the Christ .</td>
+            </tr>
+        
+            <tr class="">
+                <td>2378</td>
+
+                <td>7.2914</td>
+                
+                <td>
+                    GT:<br>
+                    country of citizenship <br><br>
+                    Predicted:<br>
+                    None
+                </td>
+
+                <td class="doc-text">The Calais Conference was a 26 February 1917 meeting of politicians and generals from <span class="tail"><span class="type">LOC</span>France</span> and the United Kingdom . Ostensibly about railway logistics for the upcoming allied Spring offensive the majority of the conference was given over to a plan to bring British forces under overall French command . The British Prime Minister David Lloyd George was supportive of the proposal and arranged for the British war cabinet to approve it in advance of the conference , without the knowledge of senior British generals Douglas Haig and Sir William Robertson . The latter were surprised when the proposal was presented by French General <span class="head"><span class="type">PER</span>Robert Nivelle</span> at the conference . The next day the two generals met with Lloyd George and threatened their resignations rather than implement the proposal . This led to the significant watering - down of the plan with greater freedom given to British commanders . The conference caused mistrust between the British civil and military chiefs and set back the cause of a unified allied command until Spring 1918 , when the successful German Spring Offensive rendered it essential .</td>
+            </tr>
+        
+            <tr class="">
+                <td>2473</td>
+
+                <td>7.2842</td>
+                
+                <td>
+                    GT:<br>
+                    has part <br><br>
+                    Predicted:<br>
+                    None
+                </td>
+
+                <td class="doc-text">Speech is the fourth ( and final ) album of the British blues - rock band Steamhammer . In 1971 , bassist Steve Davy left the band , and Louis Cennamo was recruited as his replacement - then , vocalist / guitarist Kieran White also left the band after a summer tour . Guitarist Martin Pugh , drummer Mick Bradley and Cennamo ( with guest vocalist Garth Watt - Roy , of Fuzzy Duck ) then went in the studio to record Speech , which was released in 1972 . It consisted of three lengthy ( and mostly instrumental ) songs in a heavier progressive - rock vein , that was somewhat different from their initial blues and folk / jazz - influenced albums . Bradley died from leukemia shortly before the album 's mixing was completed ( the album is dedicated to him on the inside album cover ) . The band continued with American singer / guitarist Bruce Payne and drummer John Lingwood , touring in Germany in support of the album , where they were more popular than back home in England . After Steamhammer wound down , Pugh and Cennamo joined up with former <span class="head"><span class="type">ORG</span>Yardbirds</span> vocalist <span class="tail"><span class="type">PER</span>Keith Relf</span> ( who had provided production assistance on Speech , as well as contributing background vocals ) and drummer Bobby Caldwell , formerly of Johnny Winter 's band and Captain Beyond , to form Armageddon .</td>
+            </tr>
+        
+            <tr class="pert-rel-found">
+                <td>299</td>
+
+                <td>7.2308</td>
+                
+                <td>
+                    GT:<br>
+                    country of citizenship (Perturbed)<br><br>
+                    Predicted:<br>
+                    country of citizenship (confidence: 0.9993)
+                </td>
+
+                <td class="doc-text"><span class="head"><span class="type">PER</span>Victoria Rodríguez</span> (; born 22 April 1995 in Durango City ) is a <span class="tail"><span class="type">LOC</span>Mexican</span> tennis player . <span class="head"><span class="type">PER</span>Rodríguez</span> has won seven singles and 13 doubles titles on the ITF tour in her career , as well as one WTA 125 K series doubles final . She reached her best singles ranking of world number 216 on 16 November 2015 , and her best doubles ranking of 122 on 27 November 2017 . That will change , however , once her results from the two latest tournaments at Hua Hin are included in the ranking system . <span class="head"><span class="type">PER</span>Rodríguez</span> made her WTA tour debut at the 2013 Abierto Mexicano Telcel , partnering Marcela Zacarías in doubles . The <span class="tail"><span class="type">LOC</span>Mexican</span> pair won their first round match against fellow <span class="tail"><span class="type">LOC</span>Mexican</span> wild cards Ximena Hermoso and Ana Sofía Sánchez , only to lose in the quarterfinals to the Spanish 4th seeds Lourdes Domínguez Lino and Arantxa Parra Santonja , who went on to win the title . Playing for Mexico at the Fed Cup , <span class="head"><span class="type">PER</span>Rodríguez</span> has a win – loss record of 5–6 .</td>
+            </tr>
+        
+            <tr class="pred-rel-but-not-gt">
+                <td>481</td>
+
+                <td>7.2268</td>
+                
+                <td>
+                    GT:<br>
+                    None <br><br>
+                    Predicted:<br>
+                    publication date (confidence: 0.9993)
+                </td>
+
+                <td class="doc-text">Kathryn Hahn ( born July 23 , 1973 ) is an American actress , fashion model and comedian . She began her career on television , playing Lily Lebowski in the NBC crime drama series Crossing Jordan ( 2001 – 07 ) . Hahn went on to appear as a supporting actress in a number of major comedy films , including roles in the films How to Lose a Guy in 10 Days ( 2003 ) , ( 2004 ) , Step Brothers ( 2008 ) , Our Idiot Brother ( 2011 ) , We 're the Millers ( 2013 ) , The Secret Life of Walter Mitty ( 2013 ) , and The Visit ( 2015 ) . As a lead actress , Hahn starred in the 2013 comedy - drama film Afternoon Delight , directed by Jill Soloway . She had a starring role in the comedy film Bad Moms ( 2016 ) , and its sequel , <span class="head"><span class="type">MISC</span>A Bad Moms Christmas</span> ( <span class="tail"><span class="type">TIME</span>2017</span> ) . She has also appeared in a number of dramatic films , including Revolutionary Road ( 2008 ) , This Is Where I Leave You ( 2014 ) , Tomorrowland ( 2015 ) , The Visit ( 2015 ) , and Captain Fantastic ( 2016 ) . In <span class="tail"><span class="type">TIME</span>2017</span> , she received a nomination for a Primetime Emmy Award for Outstanding Supporting Actress in a Comedy Series for her work in Transparent ( 2014–present ) .</td>
+            </tr>
+        
+            <tr class="pred-rel-but-not-gt">
+                <td>1034</td>
+
+                <td>7.1980</td>
+                
+                <td>
+                    GT:<br>
+                    None <br><br>
+                    Predicted:<br>
+                    place of birth (confidence: 0.9993)
+                </td>
+
+                <td class="doc-text"><span class="head"><span class="type">PER</span><span class="head"><span class="type">PER</span>Munyoro Nyamau</span></span> ( <span class="head"><span class="type">PER</span>Hezekiah Munyoro Nyamau</span> ; born December 5 , 1942   or December 6 , 1938 in <span class="tail"><span class="type">LOC</span>Riangombe Nene</span> , in Nyaribari Chache ) is a former Kenyan athlete and winner of the gold medal in the 4 × 400 m relay at the 1972 Summer Olympics . He won inter - school championships in Kisii when he was 15 . He reached the semifinals of the 400 m and won a surprise silver medal as a member of the Kenyan 4 × 400 m relay team at the 1968 Summer Olympics . His teammates were Daniel Rudisha , Naftali Bon and Charles Asati . <span class="head"><span class="type">PER</span>Nyamau</span> won the gold medal in the 4 × 400 m relay at the 1970 British Commonwealth Games . In September 1970 , <span class="head"><span class="type">PER</span>Nyamau</span> - with teammates Naftali Bon , Thomas Saisi and Robert Ouko - set the men ’s 4x880 yard world record at 7:11.6 . At the Munich Olympics , <span class="head"><span class="type">PER</span>Nyamau</span> was eliminated in the quarterfinals of the 400 m , but he won the gold medal in the absence of the United States as a member of the Kenyan 4 × 400 m relay team . Other members of the team were Charles Asati , Robert Ouko and Julius Sang . He joined Kenyan army in 1963 and was employed by them until his retirement in 1997 .</td>
+            </tr>
+        
+            <tr class="pert-rel-found">
+                <td>655</td>
+
+                <td>7.1586</td>
+                
+                <td>
+                    GT:<br>
+                    member of sports team (Perturbed)<br><br>
+                    Predicted:<br>
+                    member of sports team (confidence: 0.9992)
+                </td>
+
+                <td class="doc-text"><span class="head"><span class="type">PER</span>Bobby Jack Oliver</span> ( January 9 , 1936 - December 15 , 2012 ) was an American Canadian Football League defensive tackle . Graduating from Baylor University , <span class="head"><span class="type">PER</span>Oliver</span> was a second round pick of the <span class="tail"><span class="type">ORG</span>Chicago Cardinals</span> in the 1958 NFL Draft . He chose to play in the CFL , starting a 3-year stint with the Toronto Argonauts in 1958 . He intercepted 2 passes for the Double Blue and in 1961 was traded to the Montreal Alouettes , along with Paul Fedor and linebacker Ron Brewer , for defensive end Doug McNichol and tackle Billy Shipp . <span class="head"><span class="type">PER</span>Oliver</span> enjoyed his greatest success as a Lark , being named an all - star in 1961 and 1962 , and winning the Jeff Russel Memorial Trophy as the CFL East MVP . He added kicking to his repertoire , scoring 103 points and punting 22 times . In 1964 , he was traded to the Hamilton Tiger - Cats , where he played 2 games ; his contract was promptly sold to the Edmonton Eskimos , where he finished the season and his career . <span class="head"><span class="type">PER</span>Oliver</span> married Elizabeth Ann " Betty " Trentham on June 4 , 1954 ; settled in Texas , they have two grown children and one deceased .</td>
+            </tr>
+        
+            <tr class="">
+                <td>98</td>
+
+                <td>7.1500</td>
+                
+                <td>
+                    GT:<br>
+                    applies to jurisdiction <br><br>
+                    Predicted:<br>
+                    None
+                </td>
+
+                <td class="doc-text">William H. Nobles ( 1816 – December 28 , 1876 ) was an American military officer , businessman , and politician . Nobles was born in Genesee County , New York . He moved to Wisconsin Territory in 1841 and settled in St. Croix Falls , Wisconsin Territory . He then moved to Hudson , Wisconsin Territory and Stillwater , Wisconsin Territory . In 1848 , Nobles settled in <span class="tail"><span class="type">LOC</span>Saint Paul</span> , Wisconsin Territory . He was involved with the blacksmith , wagon building businesses and was a machinist . He helped constructed a wagon road for the United States government . In 1854 and 1856 , Nobles served in the Minnesota Territorial House of Representatives . He also served on the <span class="head"><span class="type">ORG</span>Saint Paul City Council</span> in 1855 and 1856 . Nobles served in the 79th New York Volunteer Infantry during the American Civil War . Nobles died in <span class="tail"><span class="type">LOC</span>Saint Paul</span> , Minnesota . Nobles County , Minnesota was named in his honor .</td>
+            </tr>
+        
+            <tr class="pert-rel-found">
+                <td>2589</td>
+
+                <td>7.0252</td>
+                
+                <td>
+                    GT:<br>
+                    record label (Perturbed)<br><br>
+                    Predicted:<br>
+                    record label (confidence: 0.9991)
+                </td>
+
+                <td class="doc-text"><span class="head"><span class="type">MISC</span>Love Story</span> is the second studio album by American rapper Yelawolf . It was released on April 21 , 2015 , by <span class="tail"><span class="type">ORG</span>Interscope Records</span> , Shady Records and Slumerican . The album was described by Yelawolf as a more passionate album than his debut album . Recording process took place primarily in Nashville , Tennessee from 2012 to 2015 . The production on the album was handled by Yelawolf himself , along with Eminem ( who also served as the executive producer ) , Malay and WLPWR , among others . The album was influenced by aspects of country and rock . <span class="head"><span class="type">MISC</span>Love Story</span> was supported by five singles : " Box Chevy V " , " Till It 's Gone " , " Whiskey in a Bottle " , " American You " and " Best Friend " featuring Eminem . <span class="head"><span class="type">MISC</span>Love Story</span> received generally positive reviews from critics , who praised the album 's emotional feel as well as its ambition and production , but criticized its length . The album debuted at number three on the US Billboard 200 , selling 51,000 copies in its first week .</td>
+            </tr>
+        
+            <tr class="pred-rel-but-not-gt">
+                <td>1858</td>
+
+                <td>6.9832</td>
+                
+                <td>
+                    GT:<br>
+                    None <br><br>
+                    Predicted:<br>
+                    participant of (confidence: 0.9991)
+                </td>
+
+                <td class="doc-text">Stuart O'Grady ( born 6 August 1973 ) is a retired Australian professional road bicycle racer , who rode as a professional between 1995 and 2013 . A former track cyclist , O'Grady and Graeme Brown won a gold medal in the Men 's Madison at the 2004 Summer Olympics . O'Grady also won Paris – Roubaix in 2007 . O'Grady competed in the <span class="tail"><span class="type">MISC</span>Tour de France</span> from 1997 and contended for the points classification in the <span class="tail"><span class="type">MISC</span>Tour de France</span> known as the green jersey , finishing second in the 1998 , 1999 , 2001 and 2005 races . He wore the yellow jersey of general classification leader in 1998 and 2001 . With his participation in the 2013 <span class="tail"><span class="type">MISC</span>Tour de France</span> , he tied <span class="head"><span class="type">PER</span>George Hincapie</span> 's record of 17 participations in the <span class="tail"><span class="type">MISC</span>Tour de France</span> . However , Hincapie was removed from three of his 17 starts for his part in the Lance Armstrong doping scandal , and O'Grady himself admitted having been assisted by illicit erythropoietin ( EPO ) use at least on the 1998 <span class="tail"><span class="type">MISC</span>Tour de France</span> ( the Dutchman Joop Zoetemelk holds the absolute records of completed Tours de France , with 16 from 1970   – 1986 ) . He was awarded the Order of Australia Medal .</td>
+            </tr>
+        
+            <tr class="pert-rel-found">
+                <td>2056</td>
+
+                <td>6.9761</td>
+                
+                <td>
+                    GT:<br>
+                    country of citizenship (Perturbed)<br><br>
+                    Predicted:<br>
+                    country of citizenship (confidence: 0.9991)
+                </td>
+
+                <td class="doc-text">László Zarándi ( born 10 June 1929 ) was a Hungarian athlete who mainly competed in the 100 metres . He was born in Kiskunfélegyháza . He began his career in sport in 1946/47 as a soccer player in the team of SZVSE . At the high school he continued to play soccer , but trained also in athletics : 100 meter and high jump . Since 1950 he has been elected in the national team of <span class="tail"><span class="type">LOC</span>Hungary</span> for 4 x 100 meters relay . He competed for <span class="tail"><span class="type">LOC</span>Hungary</span> at the 1952 Summer Olympics held in Helsinki , Finland where he won the bronze medal in the men 's 4 x 100 metre relay with his team mates <span class="head"><span class="type">PER</span>Géza Varasdi</span> , György Csányi and Béla Goldoványi . Together with the same team , he won the gold medal on 29 August 1954 in Bern , at the European Championship of Athletics in the men 4 x 100 meter relay . From 1952 he has been teaching at the High Schoeo for Physical Education and he has trained jumpers like László Szalma ( 4 . place at the Olympic Games in 1980 ) and Dragan Ivanov .</td>
+            </tr>
+        
+            <tr class="">
+                <td>3046</td>
+
+                <td>6.9268</td>
+                
+                <td>
+                    GT:<br>
+                    genre <br><br>
+                    Predicted:<br>
+                    None
+                </td>
+
+                <td class="doc-text">Bebop or bop is a style of <span class="tail"><span class="type">MISC</span>jazz</span> developed in the early to mid-1940s in the United States , which features songs characterized by a fast tempo , complex chord progressions with rapid chord changes and numerous changes of key , instrumental virtuosity , and improvisation based on a combination of harmonic structure , the use of scales and occasional references to the melody . Bebop developed as the younger generation of jazz musicians expanded the creative possibilities of jazz beyond the popular , dance - oriented swing style with a new " musician 's music " that was not as danceable and demanded close listening . As bebop was not intended for dancing , it enabled the musicians to play at faster tempos . Bebop musicians explored advanced harmonies , complex syncopation , altered chords , extended chords , chord substitutions , asymmetrical phrasing , and intricate melodies . Bebop groups used rhythm sections in a way that expanded their role . Whereas the key ensemble of the swing era was the big band of up to fourteen pieces playing in an ensemble - based style , the classic bebop group was a small combo that consisted of saxophone ( alto or tenor ) , trumpet , piano , double bass , and drums playing music in which the ensemble played a supportive role for soloists . Rather than play heavily arranged music , bebop musicians typically played the melody of a song ( called the " head " ) with the accompaniment of the rhythm section , followed by a section in which each of the performers improvised a solo , then returned to the melody at the end of the song . Some of the most influential bebop artists , who were typically composer - performers , are : tenor sax players Dexter Gordon , Sonny Rollins , and James Moody ; alto sax player Charlie Parker ; trumpeters Fats Navarro , Clifford Brown , and Dizzy Gillespie ; pianists Bud Powell , Mary Lou Williams , and Thelonious Monk ; electric guitarist Charlie Christian , and drummers <span class="head"><span class="type">PER</span>Kenny Clarke</span> , Max Roach , and Art Blakey .</td>
+            </tr>
+        
+            <tr class="pred-rel-but-not-gt">
+                <td>2158</td>
+
+                <td>6.9184</td>
+                
+                <td>
+                    GT:<br>
+                    None <br><br>
+                    Predicted:<br>
+                    contains administrative territorial entity (confidence: 0.9990)
+                </td>
+
+                <td class="doc-text">World Wide Live is a live album by German rock band Scorpions released in 1985 . The original audio recording was produced by Dieter Dierks . A VHS was released at the same time with footage of Scorpions ' world tour . The live album was originally released as a 2LP vinyl set , in a gatefold - sleeve , and a cassette . The liner notes contain a crew member list , tour date information and when the shows were recorded : Sports Arena , San Diego , <span class="tail"><span class="type">LOC</span>CA</span> , <span class="tail"><span class="type">LOC</span>USA</span> ( 4/26/84 ) The Forum , Los Angeles , <span class="tail"><span class="type">LOC</span>CA</span> , <span class="tail"><span class="type">LOC</span>USA</span> ( 4/24/84 & 4/25/84 ) <span class="head"><span class="type">LOC</span>Pacific Amphitheatre</span> , <span class="head"><span class="type">LOC</span>Costa Mesa</span> , <span class="tail"><span class="type">LOC</span>CA</span> , <span class="tail"><span class="type">LOC</span>USA</span> ( 4/28/84 ) Bercy , Paris , France ( 2/29/84 ) Sporthalle , Cologne , West Germany ( 11/17/84 ) The initial CD release featured 15 tracks ( dropping " Another Piece of Meat " , " Six - String Sting " and " Ca n't Get Enough " , parts 1 & 2 , due to time constraints ) , but the remastered edition of 1997 features the original album in full .</td>
+            </tr>
+        
+            <tr class="">
+                <td>2158</td>
+
+                <td>6.8724</td>
+                
+                <td>
+                    GT:<br>
+                    contains administrative territorial entity <br><br>
+                    Predicted:<br>
+                    contains administrative territorial entity (confidence: 0.9940)
+                </td>
+
+                <td class="doc-text">World Wide Live is a live album by German rock band Scorpions released in 1985 . The original audio recording was produced by Dieter Dierks . A VHS was released at the same time with footage of Scorpions ' world tour . The live album was originally released as a 2LP vinyl set , in a gatefold - sleeve , and a cassette . The liner notes contain a crew member list , tour date information and when the shows were recorded : Sports Arena , San Diego , <span class="tail"><span class="type">LOC</span>CA</span> , <span class="tail"><span class="type">LOC</span><span class="tail"><span class="type">LOC</span>USA</span></span> ( 4/26/84 ) The Forum , Los Angeles , <span class="tail"><span class="type">LOC</span>CA</span> , <span class="tail"><span class="type">LOC</span><span class="tail"><span class="type">LOC</span>USA</span></span> ( 4/24/84 & 4/25/84 ) <span class="head"><span class="type">LOC</span>Pacific Amphitheatre</span> , <span class="head"><span class="type">LOC</span><span class="head"><span class="type">LOC</span>Costa Mesa</span></span> , <span class="tail"><span class="type">LOC</span>CA</span> , <span class="tail"><span class="type">LOC</span><span class="tail"><span class="type">LOC</span>USA</span></span> ( 4/28/84 ) Bercy , Paris , France ( 2/29/84 ) Sporthalle , Cologne , West Germany ( 11/17/84 ) The initial CD release featured 15 tracks ( dropping " Another Piece of Meat " , " Six - String Sting " and " Ca n't Get Enough " , parts 1 & 2 , due to time constraints ) , but the remastered edition of 1997 features the original album in full .</td>
+            </tr>
+        
+            <tr class="pred-rel-but-not-gt">
+                <td>1889</td>
+
+                <td>6.8584</td>
+                
+                <td>
+                    GT:<br>
+                    None <br><br>
+                    Predicted:<br>
+                    country (confidence: 0.9988)
+                </td>
+
+                <td class="doc-text">The Vaal Triangle is a triangular area formed by Vereeniging , Vanderbijlpark and Sasolburg - together they comprise a substantial urban complex in <span class="tail"><span class="type">LOC</span>South Africa</span> about 60   km south of Johannesburg . Meyerton , just north of Vereeniging , is also generally included in the complex , and residents of Sharpeville , Boipatong , Bophelong , the greater Sebokeng area ( includingEvaton , Orange Farm , etc . ) , Heidelberg , Zamdela,((Deneysville ) ) and Potchefstroom also generally tend to consider themselves to live in the Vaal Triangle . The area straddles the Vaal River and is a major industrial region , which is home to former Iron and Steel Corporation Iscor , now <span class="head"><span class="type">ORG</span>ArcelorMittal South Africa</span> and Sasol , the steel and oil - from - coal processing facilities . Due to the heavy industries in and around the Vaal Triangle it became infamous for its air pollution and respiratory disease . For this reason , local Afrikaans speaking people often refer to the region as the Vuil Driehoek ( meaning Dirty Triangle ) as a pun on Vaal Driehoek ( the Afrikaans translation for Vaal Triangle ) . Nearby is the Vaal Dam , from which the massive PWV megalopolis ( Pretoria , Witwatersrand and Vereeniging ) draws its water . The PWV forms the urban heart of Gauteng province . The Witwatersrand is the name given to the area that comprises the Greater Johannesburg metropole and the gold - bearing reef along which gold was discovered in 1886 . The Vaal Dam is well - patronised by people from Johannesburg over the weekends and during holidays , as it provides extensive water recreation facilities some 70   km south of the city .</td>
+            </tr>
+        
+            <tr class="pert-rel-found">
+                <td>1315</td>
+
+                <td>6.8192</td>
+                
+                <td>
+                    GT:<br>
+                    conflict (Perturbed)<br><br>
+                    Predicted:<br>
+                    conflict (confidence: 0.9989)
+                </td>
+
+                <td class="doc-text">The grenade , hand , anti - tank No . 74 , commonly known as the S.T. grenade or sticky bomb , was a British hand grenade designed and produced during the <span class="tail"><span class="type">MISC</span>Second World War</span> . The grenade was one of a number of anti - tank weapons developed for use by the <span class="head"><span class="type">ORG</span>British Army</span> and Home Guard as an ad hoc solution to a lack of sufficient anti - tank guns in the aftermath of the Dunkirk evacuation . Designed by a team from MIR(c ) including Major Millis Jefferis and Stuart Macrae , the grenade consisted of a glass sphere containing an explosive made of nitroglycerin and additives ( this added stability to the mix , as well as giving it its squash - head - like effect ) covered in a strong adhesive and surrounded by a sheet - metal casing . When the user pulled a pin on the handle of the grenade , the casing would fall away and expose the sticky sphere . Pulling another pin would arm the firing mechanism and the user would then attempt to attach the grenade to an enemy tank or other vehicle . Letting go of the handle would release a lever that would activate a five - second fuse , which would then detonate the nitroglycerin . The grenade had several faults with its design . In tests , it failed to adhere to dusty or muddy tanks and , if the user was not careful after freeing the grenade from its casing , it could easily stick to his uniform . The Ordnance Board of the War Department did not approve the grenade for use by the <span class="head"><span class="type">ORG</span>British Army</span> , but personal intervention by the prime minister , Winston Churchill , led to the grenade going into production . Between 1940 and 1943 , approximately 2.5 million were produced . It was primarily issued to the Home Guard , but was also used by British and Commonwealth forces in North Africa , accounting for six German tanks ; used by Allied Forces on the Anzio Beachhead , including the First Special Service Force ; as well as by Australian Army units during the New Guinea campaign . The French Resistance were also issued a quantity of the grenades .</td>
+            </tr>
+        
+            <tr class="pert-rel-found">
+                <td>2451</td>
+
+                <td>6.8150</td>
+                
+                <td>
+                    GT:<br>
+                    date of death (Perturbed)<br><br>
+                    Predicted:<br>
+                    date of death (confidence: 0.9989)
+                </td>
+
+                <td class="doc-text"><span class="head"><span class="type">PER</span>Antonín Puč</span> ( 16 May 1907 in Jinonice – 18 April 1988 in Prague ) was a Czech footballer who played as a forward ; he is the all - time leading scorer for the Czechoslovak national team . Puč 's international career lasted from 1926 to 1939 ; in that time , he played 61 matches for Czechoslovakia , scoring 35 goals . He played for Czechoslovakia in the 1934 FIFA World Cup scoring two goals , including one in the final , a 2 - 1 loss against Italy , and also played in the 1938 edition . <span class="head"><span class="type">PER</span>Puč</span> spent most of his club career with Slavia Prague . After the split of the country into the Czech Republic and Slovakia and the corresponding national teams , Jan Koller surpassed <span class="head"><span class="type">PER</span>Puč</span> 's record in 2005 . <span class="head"><span class="type">PER</span>Puč</span> died in <span class="tail"><span class="type">TIME</span>1988</span> aged 80 .</td>
+            </tr>
+        
+            <tr class="pred-rel-but-not-gt">
+                <td>1249</td>
+
+                <td>6.7802</td>
+                
+                <td>
+                    GT:<br>
+                    None <br><br>
+                    Predicted:<br>
+                    located in the administrative territorial entity (confidence: 0.9669)<br>country (confidence: 0.9657)
+                </td>
+
+                <td class="doc-text">Brasiguaio ( Portuguese ) or brasiguayo ( Spanish ) is a term referring to <span class="tail"><span class="type">LOC</span><span class="tail"><span class="type">LOC</span>Brazilian</span></span> migrants in Paraguay and their descendants . The word Brasiguaio has been used by members within and outside this group to categorize individuals whose lives are connected with both <span class="tail"><span class="type">LOC</span><span class="tail"><span class="type">LOC</span>Brazil</span></span> and Paraguay , and more specifically to refer to Brazilians who live or have lived in Paraguay . They typically live in the Southeastern Paraguayan departments of Canindeyú and <span class="head"><span class="type">LOC</span>Alto Paraná</span> , which border with <span class="tail"><span class="type">LOC</span><span class="tail"><span class="type">LOC</span>Brazil</span></span> . Most emigrated from <span class="tail"><span class="type">LOC</span><span class="tail"><span class="type">LOC</span>Brazil</span></span> by the 1960s . They are often accused of imposing on the culture , language and currency of Paraguay . In total they make up 455,000 Brasiguaios , or about one - tenth of Paraguay 's population . In some border zones , Brasiguayos and their descendants are more than 90 % of the population , where Portuguese is still spoken as the mother tongue . In <span class="head"><span class="type">LOC</span>San Alberto de Mbaracayú</span> city , approximately 80 % of its 23,000 inhabitants are of <span class="tail"><span class="type">LOC</span><span class="tail"><span class="type">LOC</span>Brazilian</span></span> ancestry . The origins of Brasiguayos are from the three states of the South Region of Brazil , Paraná , Santa Catarina , and Rio Grande do Sul . Most Brasiguayos are mainly ethically White of German , Italian , and Polish descent .</td>
+            </tr>
+        
+
+        </tbody>
+    </table>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Analyse Relations</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+        .head {
+            color: #ee6666;
+            font-weight: bold;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .tail {
+            color: #3388bb;
+            font-weight: bold;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .type {
+            display: block;
+            font-size: 12px;
+        }
+
+        .border-row-td {
+            border-bottom: solid 1px black !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+
+        .border-row-tr {
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+
+        .border-col-td {
+            border-right: solid 1px black !important;
+        }
+
+        .pert-rel-found {
+            background-color: #00d9697c;
+            vertical-align: middle;
+        }
+
+        .pert-rel-not-found {
+            background-color: #ff294294;
+            vertical-align: middle;
+        }
+
+        .pred-rel-but-not-gt {
+            background-color: #e0ca4f7e;
+            vertical-align: middle;
+        }
+
+        .vertical-center {
+            display: flex;
+            align-items: center;
+        }
+
+        .doc {
+            margin-bottom: 10px;
+        }
+
+        .doc-text {
+            white-space: normal;
+        }
+
+        table.table-bordered {
+            border: 1px solid black;
+            margin-top: 20px;
+        }
+
+        table.table-bordered > thead > tr > th {
+            border: 1px solid black;
+        }
+
+        table.table-bordered > tbody > tr > td {
+            border: 1px solid black;
+        }
+
+    </style>
+</head>
+<body style="overflow-x:scroll; white-space: nowrap; padding-left: 10px; padding-top: 10px;">
+
+<h2> Analyse Relations </h2>
+
+<p></p>
+
+<div id="evaluation">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Doc ID</th>
+            <th>Relations</th>
+            <th>Score</th>
+            <th>Text</th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        {% for r in results %}
+            <tr class="{{ r["c"] }}">
+                <td>{{ r["doc_id"] }}</td>
+
+                <td>{{ "%.4f"|format(r["score"]) }}</td>
+                
+                <td>
+                    GT:<br>
+                    {{ r["gt_rel"] }} {% if r["is_perturbed"] %}(Perturbed){% endif %}<br><br>
+                    Predicted:<br>
+                    {{ r["pred_rels"] }}
+                </td>
+
+                <td class="doc-text">{{ r["text"] }}</td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>
